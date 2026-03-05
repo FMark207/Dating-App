@@ -13,6 +13,9 @@ const ProfileEditor = () => {
         fun_facts: ["Gemini", "At uni"]
     })
     const [editing, setEditing] = useState(false)
+    const [editingBio, setEditingBio] = useState(false)
+    const [newInterest, setNewInterest] = useState("")
+    const [newFunFact, setNewFunFact] = useState("")
     return (
         <div style={{
             display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh",
@@ -76,12 +79,159 @@ const ProfileEditor = () => {
                 </div>)}
             {editing && (
                 <div style={{
-
+                    color: "black",
+                    backgroundColor: "white",
+                    borderRadius: "25px",
+                    border:"1px solid black",
+                    overflow: "hidden",
+                    padding: "10px",
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "clamp(280px, 90%, 400px)"
                 }}>
-                    <h2>Edit Profile</h2>
-                    <input type="text" value={profile.location} onChange={(e) =>
-                        setProfile({ ...profile, location: e.target.value })
-                    } />
+                    <h1>Edit Profile</h1>
+                    <div style={{ marginBottom: "10px" }}>
+                        <h2>Location:</h2>
+                        <input type="text" value={profile.location} onChange={(e) =>
+                            setProfile({ ...profile, location: e.target.value })
+                        } />
+                    </div>
+                    <div>
+                        <h2>About me:</h2>
+                        <textarea value={profile.bio} onChange={(e) =>
+                            setProfile({ ...profile, bio: e.target.value })
+                        }
+                            cols={55}
+                            rows={10}
+                            style={{ resize: "none" }} />
+                    </div>
+
+                    <div>
+                        <h2>Interests:</h2>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "2px" }}>
+                            {profile.interests.map((interest, index) => (
+                                <div
+                                    key={index}
+                                    style={{
+                                        padding: "4px 12px",
+                                        borderRadius: "999px",
+                                        border: "1px solid #bdbdbd",
+                                        backgroundColor: "#f5f5f5",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "6px"
+                                    }}
+                                >
+                                    <span>{interest}</span>
+                                    <button
+                                        onClick={() => {
+                                            setProfile({
+                                                ...profile,
+                                                interests: profile.interests.filter((_, i) => i !== index)
+                                            })
+                                        }}
+                                        style={{
+                                            border: "none",
+                                            paddingLeft: "5px",
+                                            width: "2px",
+                                            background: "transparent",
+                                            cursor: "pointer",
+                                            fontWeight: "bold",
+                                            color: "red"
+                                        }}
+                                    >
+                                        ✕
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div style={{ marginTop: "8px", marginBottom: "8px", display: "flex", gap: "8px" }}>
+                            <input
+                                type="text"
+                                value={newInterest}
+                                onChange={(e) => setNewInterest(e.target.value)}
+                                placeholder="Add interest"
+                            />
+                            <button
+                                onClick={() => {
+                                    if (newInterest.trim() !== "") {
+                                        setProfile({
+                                            ...profile,
+                                            interests: [...profile.interests, newInterest.trim().charAt(0).toUpperCase() + newInterest.trim().substring(1)]
+                                        })
+                                        setNewInterest("")
+                                    }
+                                }}
+                            >
+                                Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2>More about me:</h2>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "2px" }}>
+                            {profile.fun_facts.map((fun_fact, index) => (
+                                <div
+                                    key={index}
+                                    style={{
+                                        padding: "4px 12px",
+                                        borderRadius: "999px",
+                                        border: "1px solid #bdbdbd",
+                                        backgroundColor: "#f5f5f5",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "6px"
+                                    }}
+                                >
+                                    <span>{fun_fact}</span>
+                                    <button
+                                        onClick={() => {
+                                            setProfile({
+                                                ...profile,
+                                                fun_facts: profile.fun_facts.filter((_, i) => i !== index)
+                                            })
+                                        }}
+                                        style={{
+                                            border: "none",
+                                            paddingLeft: "5px",
+                                            width: "2px",
+                                            background: "transparent",
+                                            cursor: "pointer",
+                                            fontWeight: "bold",
+                                            color: "red"
+                                        }}
+                                    >
+                                        ✕
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div style={{ marginTop: "8px", marginBottom: "8px", display: "flex", gap: "8px" }}>
+                            <input
+                                type="text"
+                                value={newFunFact}
+                                onChange={(e) => setNewFunFact(e.target.value)}
+                                placeholder="Add interest"
+                            />
+                            <button
+                                onClick={() => {
+                                    if (newFunFact.trim() !== "") {
+                                        setProfile({
+                                            ...profile,
+                                            fun_facts: [...profile.fun_facts, newFunFact.trim().charAt(0).toUpperCase() + newFunFact.trim().substring(1)]
+                                        })
+                                        setNewFunFact("")
+                                    }
+                                }}
+                            >
+                                Add
+                            </button>
+                        </div>
+                    </div>
+
                     <button onClick={() => setEditing(false)}>Close</button>
                 </div>
 
@@ -95,7 +245,7 @@ const ProfileEditor = () => {
                         padding: "20px"
                     }}
                 >
-                    
+
                     <button
                         style={{
                             width: "60px",
@@ -151,7 +301,7 @@ const ProfileEditor = () => {
                         }}
                     >
                         ✕
-                    </button>                    
+                    </button>
                 </div>)}
         </div>
     )
