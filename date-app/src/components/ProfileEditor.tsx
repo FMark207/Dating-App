@@ -6,24 +6,36 @@ interface ProfileEditorProps {
 }
 
 const ProfileEditor = ({ setUserInterests }: ProfileEditorProps) => {
-    const [profile, setProfile] = useState<Profile>({
-        name: "Patrick",
-        age: 25,
-        image: "prof.avif",
-        location: "Nyírparasznya",
-        distance: "5km away",
-        bio: "Special ed nigga",
-        interests: ["Travel", "Gym", "Music", "Programming", "Gaming"],
-        fun_facts: ["Gemini", "At uni"]
+    const [profile, setProfile] = useState<Profile>(() => {
+        const stored = localStorage.getItem("userProfile")
+        if (stored) {
+            try {
+                return JSON.parse(stored) as Profile
+            } catch {
+                // ignore parse errors and fall back to defaults
+            }
+        }
+
+        return {
+            name: "Patrick",
+            age: 25,
+            image: "prof.avif",
+            location: "Nyírparasznya",
+            distance: "5km away",
+            bio: "Special ed nigga",
+            interests: ["Travel", "Gym", "Music", "Programming", "Gaming"],
+            fun_facts: ["Gemini", "At uni"],
+        }
     })
     
-    // Update parent component with user interests whenever they change
+    // Persist profile to localStorage and update parent with interests whenever they change
     useEffect(() => {
         if (setUserInterests) {
             // Convert to lowercase for matching with profile JSON
-            setUserInterests(profile.interests.map(i => i.toLowerCase()));
+            setUserInterests(profile.interests.map((i) => i.toLowerCase()));
         }
-    }, [profile.interests, setUserInterests])
+        localStorage.setItem("userProfile", JSON.stringify(profile))
+    }, [profile, setUserInterests])
     const [editing, setEditing] = useState(false)
     const [editingBio, setEditingBio] = useState(false)
     const [newInterest, setNewInterest] = useState("")

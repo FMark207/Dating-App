@@ -25,22 +25,45 @@ const ChatAction = () => {
     setLoading(true)
     setError(null)
 
+    const MATCHED_IDS_KEY = "matchedProfileIds"
+    const getMatchedIds = () => {
+      try {
+        return JSON.parse(localStorage.getItem(MATCHED_IDS_KEY) ?? "[]") as string[]
+      } catch {
+        return []
+      }
+    }
+
     fetch("/profiles.json")
       .then((res) => res.json())
       .then((data: ProfileWithChat[]) => {
-        const found = data?.[profileIndex]
+        const matchedIds = getMatchedIds()
+
+        const idParam = params.id
+        const foundById = idParam ? data.find((p) => p.id === idParam) : undefined
+        const indexFromId = idParam ? Number(idParam) : NaN
+        const foundByIndex = !Number.isNaN(indexFromId) ? data[indexFromId] : undefined
+        const found = foundById ?? foundByIndex
+
         if (!found) {
           setError("Profile not found")
           return
         }
-        setProfile(found)
+
+        const isMatched = found.id ? matchedIds.includes(found.id) : found.isMatched
+        if (!isMatched) {
+          setError("This profile is not matched yet.")
+          return
+        }
+
+        setProfile({ ...found, isMatched })
       })
       .catch((err) => {
         setError("Failed to load profiles")
         console.error(err)
       })
       .finally(() => setLoading(false))
-  }, [profileIndex])
+  }, [profileIndex, params.id])
 
   const interestsSnippet = useMemo(() => {
     if (!profile?.interests?.length) return "No interests yet."

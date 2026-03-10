@@ -1,13 +1,13 @@
 [
   {
     "id": "p_001",
-    "name": "Ava",
-    "gender": "female",
+    "name": "Lebron James",
+    "gender": "male",
     "age": 26,
-    "shortDescription": "Coffee enthusiast and movie buff.",
+    "shortDescription": "I like bakemtball.",
     "interests": ["hiking", "films", "cooking"],
     "image": "https://m.media-amazon.com/images/I/41PoJZIpyHL._UXNaN_FMjpg_QL85_.jpg",
-    "isMatched": true,
+    "isMatched": false,
     "chatGame": {
       "message": "Hey! I just got back from a hike and I'm about to cook something while watching a movie. What would you join me for?",
       "options": [
@@ -29,13 +29,13 @@
   },
   {
     "id": "p_002",
-    "name": "Jordan",
+    "name": "Benjamin Netanyahu",
     "gender": "male",
     "age": 28,
     "shortDescription": "Design nerd who loves late-night tacos.",
     "interests": ["design", "music", "skateboarding"],
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/960px-Benjamin_Netanyahu%2C_February_2023.jpg",
-    "isMatched": true,
+    "isMatched": false,
     "chatGame": {
       "message": "I'm redesigning my skateboard deck while listening to music. After that I might sketch some new design ideas. What sounds fun to you?",
       "options": [
@@ -57,13 +57,13 @@
   },
   {
     "id": "p_003",
-    "name": "Taylor",
+    "name": "Plato",
     "gender": "female",
     "age": 24,
     "shortDescription": "Always planning the next adventure.",
     "interests": ["travel", "photography", "yoga"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/960px-Benjamin_Netanyahu%2C_February_2023.jpg",
-    "isMatched": true,
+    "image": "https://wordsworth-editions.com/cms/wp-content/uploads/2022/02/Plato-Author.jpg",
+    "isMatched": false,
     "chatGame": {
       "message": "I'm planning my next trip and editing some travel photos after yoga. What would you rather do with me?",
       "options": [
@@ -82,5 +82,138 @@
       ],
       "correctOptionId": "o1"
     }
+  },
+{
+  "id": "p_004",
+  "name": "Idk",
+  "gender": "male",
+  "age": 27,
+  "shortDescription": "Tech enthusiast and gamer.",
+  "interests": ["gaming", "technology", "movies"],
+  "image": "https://randomuser.me/api/portraits/men/65.jpg",
+  "isMatched": false,
+  "chatGame": {
+    "message": "I just built a new gaming PC and I'm about to try a new game. Want to join?",
+    "options": [
+      { "id": "o1", "text": "Let's play video games." },
+      { "id": "o2", "text": "Let's go hiking." },
+      { "id": "o3", "text": "Let's cook dinner." }
+    ],
+    "correctOptionId": "o1"
   }
+},
+{
+  "id": "p_005",
+  "name": "ASdf",
+  "gender": "female",
+  "age": 23,
+  "shortDescription": "Coffee lover and bookworm.",
+  "interests": ["reading", "coffee", "writing"],
+  "image": "https://randomuser.me/api/portraits/men/65.jpg",
+  "isMatched": false,
+  "chatGame": {
+    "message": "I'm at a cozy café reading a new novel and sipping coffee. What would you like to do?",
+    "options": [
+      { "id": "o1", "text": "Read books together." },
+      { "id": "o2", "text": "Go skateboarding." },
+      { "id": "o3", "text": "Play football." }
+    ],
+    "correctOptionId": "o1"
+  }
+},
+{
+  "id": "p_006",
+  "name": "Daniel Kim",
+  "gender": "male",
+  "age": 29,
+  "shortDescription": "Fitness addict and outdoor lover.",
+  "interests": ["gym", "running", "hiking"],
+  "image": "https://randomuser.me/api/portraits/men/65.jpg",
+  "isMatched": false,
+  "chatGame": {
+    "message": "I just finished a run and I'm thinking about a hike this weekend. Want to come?",
+    "options": [
+      { "id": "o1", "text": "Let's go hiking." },
+      { "id": "o2", "text": "Let's watch movies." },
+      { "id": "o3", "text": "Let's play chess." }
+    ],
+    "correctOptionId": "o1"
+  }
+},
+{
+  "id": "p_007",
+  "name": "Emma Rossi",
+  "gender": "female",
+  "age": 25,
+  "shortDescription": "Artist who paints everything she sees.",
+  "interests": ["painting", "art", "museums"],
+  "image": "https://randomuser.me/api/portraits/women/68.jpg",
+  "isMatched": false,
+  "chatGame": {
+    "message": "I'm painting in the park and thinking about visiting an art museum later. Want to join?",
+    "options": [
+      { "id": "o1", "text": "Visit the art museum." },
+      { "id": "o2", "text": "Go skateboarding." },
+      { "id": "o3", "text": "Play video games." }
+    ],
+    "correctOptionId": "o1"
+  }
+},
+{
+  "id": "p_008",
+  "name": "Liam O'Connor",
+  "gender": "male",
+  "age": 30,
+  "shortDescription": "Music producer who loves concerts.",
+  "interests": ["music", "concerts", "guitar"],
+  "image": "https://randomuser.me/api/portraits/men/71.jpg",
+  "isMatched": false,
+  "chatGame": {
+    "message": "I'm recording a guitar track and planning to go to a live concert tonight. What would you pick?",
+    "options": [
+      { "id": "o1", "text": "Go to a concert." },
+      { "id": "o2", "text": "Go hiking." },
+      { "id": "o3", "text": "Cook dinner." }
+    ],
+    "correctOptionId": "o1"
+  }
+},
+{
+  "id": "p_009",
+  "name": "Maya Patel",
+  "gender": "female",
+  "age": 26,
+  "shortDescription": "Foodie who loves experimenting in the kitchen.",
+  "interests": ["cooking", "baking", "food photography"],
+  "image": "https://randomuser.me/api/portraits/women/52.jpg",
+  "isMatched": false,
+  "chatGame": {
+    "message": "I'm baking something new and taking photos of it for my food blog. Want to help?",
+    "options": [
+      { "id": "o1", "text": "Let's cook together." },
+      { "id": "o2", "text": "Let's go skateboarding." },
+      { "id": "o3", "text": "Let's watch sports." }
+    ],
+    "correctOptionId": "o1"
+  }
+},
+{
+  "id": "p_010",
+  "name": "Noah Fischer",
+  "gender": "male",
+  "age": 28,
+  "shortDescription": "Photographer chasing sunsets.",
+  "interests": ["photography", "travel", "nature"],
+  "image": "https://randomuser.me/api/portraits/men/81.jpg",
+  "isMatched": false,
+  "chatGame": {
+    "message": "I'm heading out to photograph the sunset by the lake. Want to come?",
+    "options": [
+      { "id": "o1", "text": "Go take photos together." },
+      { "id": "o2", "text": "Stay home and play games." },
+      { "id": "o3", "text": "Go shopping." }
+    ],
+    "correctOptionId": "o1"
+  }
+}
 ]

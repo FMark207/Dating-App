@@ -18,6 +18,20 @@ export default function SwipePage({ userInterests }: SwipePageProps) {
   const [matchedProfile, setMatchedProfile] = useState<ProfileWithMatch | null>(null);
   const [showMatch, setShowMatch] = useState(false);
 
+  const MATCHED_IDS_KEY = "matchedProfileIds"
+
+  const getMatchedIds = () => {
+    try {
+      return JSON.parse(localStorage.getItem(MATCHED_IDS_KEY) ?? "[]") as string[]
+    } catch {
+      return []
+    }
+  }
+
+  const setMatchedIds = (ids: string[]) => {
+    localStorage.setItem(MATCHED_IDS_KEY, JSON.stringify(ids))
+  }
+
   useEffect(() => {
     async function loadProfiles() {
       const res = await fetch("/profiles.json");
@@ -37,24 +51,25 @@ export default function SwipePage({ userInterests }: SwipePageProps) {
         }
       }
 
-      // Calculate match percentage and filter profiles
+      const matchedIds = getMatchedIds();
+
+      // Calculate match percentage and flag already matched profiles
       const profilesWithMatch = data
         .map((profile) => {
           // Find matching interests (case-insensitive)
-          const matchingInterests = profile.interests.filter(interest =>
-            userProfileInterests.some(userInt => userInt.toLowerCase() === interest.toLowerCase())
+          const matchingInterests = profile.interests.filter((interest) =>
+            userProfileInterests.some((userInt) => userInt.toLowerCase() === interest.toLowerCase())
           );
 
           // Calculate match percentage
           const maxInterests = Math.max(profile.interests.length, userProfileInterests.length);
-          const matchPercentage = maxInterests > 0 
-            ? Math.round((matchingInterests.length / maxInterests) * 100)
-            : 0;
+          const matchPercentage = maxInterests > 0 ? Math.round((matchingInterests.length / maxInterests) * 100) : 0;
 
           return {
             ...profile,
             matchPercentage,
-            matchingInterests
+            matchingInterests,
+            isMatched: profile.id ? matchedIds.includes(profile.id) : profile.isMatched,
           };
         })
         .sort((a, b) => b.matchPercentage - a.matchPercentage); // Sort by match percentage descending
@@ -63,6 +78,17 @@ export default function SwipePage({ userInterests }: SwipePageProps) {
     }
     loadProfiles();
   }, [userInterests]);
+
+  const markMatched = (profileId: string) => {
+    const matchedIds = getMatchedIds()
+    if (!matchedIds.includes(profileId)) {
+      const next = [...matchedIds, profileId]
+      setMatchedIds(next)
+      setProfiles((prev) =>
+        prev.map((p) => (p.id === profileId ? { ...p, isMatched: true } : p))
+      )
+    }
+  }
 
   if (profiles.length === 0) return <div style={{
     display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh",
@@ -80,17 +106,25 @@ export default function SwipePage({ userInterests }: SwipePageProps) {
 
   function handleChoice(choice: "smash" | "pass") {
     console.log(`${choice} -> ${currentProfile.name} (${currentProfile.matchPercentage}% match)`);
-    
-    if (choice === "smash" && currentProfile.isMatched) {
-      setMatchedProfile(currentProfile);
-      setShowMatch(true);
-      setTimeout(() => {
-        setShowMatch(false);
-        setCurrentIndex(currentIndex + 1);
-      }, 2000);
-    } else {
-      setCurrentIndex(currentIndex + 1);
+
+    if (choice === "smash") {
+      // Match outcome is based on the calculated match percentage
+      const didMatch = Math.random() * 100 < currentProfile.matchPercentage
+
+      if (didMatch) {
+        // Mark this profile as matched locally
+        if (currentProfile.id) markMatched(currentProfile.id)
+        setMatchedProfile({ ...currentProfile, isMatched: true })
+        setShowMatch(true)
+        setTimeout(() => {
+          setShowMatch(false)
+          setCurrentIndex((prev) => prev + 1)
+        }, 2000)
+        return
+      }
     }
+
+    setCurrentIndex((prev) => prev + 1)
   }
 
   // Determine color based on match percentage

@@ -9,6 +9,16 @@ const ChatMessages = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
+  const MATCHED_IDS_KEY = "matchedProfileIds"
+
+  const getMatchedIds = () => {
+    try {
+      return JSON.parse(localStorage.getItem(MATCHED_IDS_KEY) ?? "[]") as string[]
+    } catch {
+      return []
+    }
+  }
+
   useEffect(() => {
     setLoading(true)
     setError(null)
@@ -16,7 +26,15 @@ const ChatMessages = () => {
     fetch("/profiles.json")
       .then((res) => res.json())
       .then((data: Profile[]) => {
-        setProfiles(data.slice(0, 3))
+        const matchedIds = getMatchedIds()
+        const matchedProfiles = data
+          .map((profile) => ({
+            ...profile,
+            isMatched: profile.id ? matchedIds.includes(profile.id) : profile.isMatched,
+          }))
+          .filter((profile) => profile.isMatched)
+
+        setProfiles(matchedProfiles)
       })
       .catch((err) => {
         console.error(err)
@@ -45,7 +63,13 @@ const ChatMessages = () => {
       {loading && <p>Loading profiles…</p>}
       {error && <p style={{ color: "#c9163b" }}>{error}</p>}
 
-      {!loading && !error && (
+      {!loading && !error && profiles.length === 0 && (
+        <p style={{ color: "rgba(0,0,0,0.65)", fontStyle: "italic" }}>
+          No matches yet — swipe in the app to find someone to chat with!
+        </p>
+      )}
+
+      {!loading && !error && profiles.length > 0 && (
         <div
           style={{
             display: "grid",
@@ -59,7 +83,7 @@ const ChatMessages = () => {
               key={profile.id ?? profile.name + index}
               profile={profile}
               lastMessage={profile.chatGame?.message ?? "Tap to open chat"}
-              onSelect={() => navigate(`/chat/${index}`, { state: { profile } })}
+              onSelect={() => navigate(`/chat/${profile.id ?? index}`, { state: { profile } })}
             />
           ))}
         </div>
