@@ -5,6 +5,7 @@ import ChatMessages from "./components/Chat_Messages/ChatMessages"
 import ChatAction from "./components/Chat_Messages/ChatAction"
 import ChatRedirector from "./components/Chat_Messages/Chat_Reidirector"
 import SwipePage from "./components/Swipepage.tsx/SwipePage"
+import LeftActionButton from "./components/LeftActionButton"
 
 function App() {
   const [userInterests, setUserInterests] = useState<string[]>(["hiking", "music", "design"])
@@ -18,6 +19,7 @@ function App() {
         <Route path="/chat/:id" element={<ChatAction />} />
       </Routes>
       <ChatRedirector />
+      <LeftActionButton />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import type { Profile } from "../types/Profile"
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 interface ProfileEditorProps {
     setUserInterests?: (interests: string[]) => void;
@@ -36,6 +37,7 @@ const ProfileEditor = ({ setUserInterests }: ProfileEditorProps) => {
         }
         localStorage.setItem("userProfile", JSON.stringify(profile))
     }, [profile, setUserInterests])
+    const navigate = useNavigate()
     const [editing, setEditing] = useState(false)
     const [editingBio, setEditingBio] = useState(false)
     const [newInterest, setNewInterest] = useState("")
@@ -386,24 +388,6 @@ const ProfileEditor = ({ setUserInterests }: ProfileEditorProps) => {
                         padding: "20px",
                     }}
                 >
-                    <button
-                        style={{
-                            width: "60px",
-                            height: "60px",
-                            borderRadius: "50%",
-                            border: "none",
-                            backgroundColor: "#2ecc71",
-                            fontSize: "24px",
-                            cursor: "pointer",
-                            boxShadow: "0 10px 20px rgba(46, 204, 113, 0.28)",
-                            color: "white",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        ✔
-                    </button>
 
                     <button
                         style={{
