@@ -1,182 +1,32 @@
 [
   {
     "id": "p_001",
-    "name": "Lena",
+    "name": "Ava",
     "gender": "female",
     "age": 26,
-    "shortDescription": "Weekend hiker who loves deep talks and street food.",
-    "interests": ["hiking", "street food", "travel", "photography"],
-    "image": ""
+    "shortDescription": "Coffee enthusiast and movie buff.",
+    "interests": ["hiking", "films", "cooking"],
+    "image": "https://m.media-amazon.com/images/I/41PoJZIpyHL._UXNaN_FMjpg_QL85_.jpg",
+    "isMatched": true
   },
   {
     "id": "p_002",
-    "name": "Mark",
+    "name": "Jordan",
     "gender": "male",
-    "age": 30,
-    "shortDescription": "Coffee lover and amateur guitarist.",
-    "interests": ["coffee", "music", "cycling"],
-    "image": ""
+    "age": 28,
+    "shortDescription": "Design nerd who loves late-night tacos.",
+    "interests": ["design", "music", "skateboarding"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/960px-Benjamin_Netanyahu%2C_February_2023.jpg",
+    "isMatched": true
   },
   {
     "id": "p_003",
-    "name": "Sofia",
+    "name": "Taylor",
     "gender": "female",
     "age": 24,
-    "shortDescription": "Bookworm and cat enthusiast, loves rainy days.",
-    "interests": ["reading", "cats", "writing", "yoga"],
-    "image": ""
-  },
-  {
-    "id": "p_004",
-    "name": "Alex",
-    "gender": "male",
-    "age": 28,
-    "shortDescription": "Tech geek and gamer who enjoys weekend road trips.",
-    "interests": ["gaming", "technology", "road trips", "photography"],
-    "image": ""
-  },
-  {
-    "id": "p_005",
-    "name": "Maya",
-    "gender": "female",
-    "age": 27,
-    "shortDescription": "Yoga instructor and smoothie aficionado.",
-    "interests": ["yoga", "health", "smoothies", "travel"],
-    "image": ""
-  },
-  {
-    "id": "p_006",
-    "name": "Daniel",
-    "gender": "male",
-    "age": 32,
-    "shortDescription": "Chef who loves trying new recipes and flavors.",
-    "interests": ["cooking", "travel", "food photography", "cycling"],
-    "image": ""
-  },
-  {
-    "id": "p_007",
-    "name": "Chloe",
-    "gender": "female",
-    "age": 29,
-    "shortDescription": "Painter and art lover, enjoys coffee shops.",
-    "interests": ["painting", "art galleries", "coffee", "writing"],
-    "image": ""
-  },
-  {
-    "id": "p_008",
-    "name": "Ethan",
-    "gender": "male",
-    "age": 25,
-    "shortDescription": "Fitness enthusiast and outdoor adventurer.",
-    "interests": ["fitness", "hiking", "running", "photography"],
-    "image": ""
-  },
-  {
-    "id": "p_009",
-    "name": "Olivia",
-    "gender": "female",
-    "age": 26,
-    "shortDescription": "Traveler and foodie, loves discovering new places.",
-    "interests": ["travel", "food", "photography", "hiking"],
-    "image": ""
-  },
-  {
-    "id": "p_010",
-    "name": "Lucas",
-    "gender": "male",
-    "age": 31,
-    "shortDescription": "Musician and coffee addict, loves jazz.",
-    "interests": ["music", "coffee", "concerts", "travel"],
-    "image": ""
-  },
-  {
-    "id": "p_011",
-    "name": "Emma",
-    "gender": "female",
-    "age": 28,
-    "shortDescription": "Gardening lover and amateur baker.",
-    "interests": ["gardening", "baking", "reading", "yoga"],
-    "image": ""
-  },
-  {
-    "id": "p_012",
-    "name": "Noah",
-    "gender": "male",
-    "age": 27,
-    "shortDescription": "Photographer who enjoys nature and cityscapes.",
-    "interests": ["photography", "travel", "hiking", "cycling"],
-    "image": ""
-  },
-  {
-    "id": "p_013",
-    "name": "Ava",
-    "gender": "female",
-    "age": 25,
-    "shortDescription": "Dog lover and fitness enthusiast.",
-    "interests": ["dogs", "fitness", "yoga", "hiking"],
-    "image": ""
-  },
-  {
-    "id": "p_014",
-    "name": "Mason",
-    "gender": "male",
-    "age": 29,
-    "shortDescription": "Software engineer who enjoys board games.",
-    "interests": ["technology", "board games", "reading", "coffee"],
-    "image": ""
-  },
-  {
-    "id": "p_015",
-    "name": "Isabella",
-    "gender": "female",
-    "age": 30,
-    "shortDescription": "Dancer and music lover, loves night strolls.",
-    "interests": ["dancing", "music", "travel", "photography"],
-    "image": ""
-  },
-  {
-    "id": "p_016",
-    "name": "Liam",
-    "gender": "male",
-    "age": 26,
-    "shortDescription": "Adventure seeker and mountain biker.",
-    "interests": ["biking", "hiking", "travel", "photography"],
-    "image": ""
-  },
-  {
-    "id": "p_017",
-    "name": "Sophia",
-    "gender": "female",
-    "age": 27,
-    "shortDescription": "Coffee shop enthusiast and book collector.",
-    "interests": ["reading", "coffee", "writing", "travel"],
-    "image": ""
-  },
-  {
-    "id": "p_018",
-    "name": "James",
-    "gender": "male",
-    "age": 28,
-    "shortDescription": "Guitarist and casual runner, loves sunsets.",
-    "interests": ["music", "running", "travel", "photography"],
-    "image": ""
-  },
-  {
-    "id": "p_019",
-    "name": "Mia",
-    "gender": "female",
-    "age": 24,
-    "shortDescription": "Vlogger and travel addict.",
-    "interests": ["travel", "video editing", "photography", "food"],
-    "image": ""
-  },
-  {
-    "id": "p_020",
-    "name": "Oliver",
-    "gender": "male",
-    "age": 30,
-    "shortDescription": "Coffee lover and urban explorer.",
-    "interests": ["coffee", "photography", "travel", "cycling"],
-    "image": ""
+    "shortDescription": "Always planning the next adventure.",
+    "interests": ["travel", "photography", "yoga"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/960px-Benjamin_Netanyahu%2C_February_2023.jpg",
+    "isMatched": true
   }
 ]
