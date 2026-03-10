@@ -17,22 +17,51 @@ const ProfileEditor = () => {
     const [newInterest, setNewInterest] = useState("")
     const [newFunFact, setNewFunFact] = useState("")
     return (
-        <div style={{
-            display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh",
-            background: "linear-gradient(to bottom, #ff4b6e, #fc6717"
-        }}>
-            {!editing && (
-                <div style={{
-                    display: "flex", width: "clamp(280px, 90%, 400px)", flexDirection: "column",
-                    backgroundColor: "white", color: "black", border: "2px solid black", borderRadius: "25px", overflow: "hidden",
-                    fontSize: "clamp(14px, 1vw, 18px)", marginBottom: "15px"
-                }}>
+        <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        padding: "2rem",
+        background: "linear-gradient(180deg, #fff4f8 0%, #ffe5e9 100%)",
+      }}
+    >
+      {!editing && (
+        <div
+          style={{
+            display: "flex",
+            width: "clamp(320px, 90%, 440px)",
+            flexDirection: "column",
+            backgroundColor: "white",
+            color: "#2c2c2c",
+            borderRadius: "22px",
+            overflow: "hidden",
+            boxShadow: "0 18px 40px rgba(0,0,0,0.1)",
+            fontSize: "clamp(14px, 1vw, 18px)",
+            marginBottom: "1.25rem",
+          }}
+        >
                     <img src={profile.image} alt="" style={{ width: "100%" }} />
                     <div style={{ display: "flex", flexDirection: "column", gap: "5px", padding: "10px" }}>
-                        <div style={{ display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "15px" }}>
-                            <h1 style={{ marginRight: "25px" }}>{profile.name}</h1>
-                            <h1 style={{ marginRight: "5px" }}>{profile.age}</h1>
-                            <img src="checklist.png" alt="" style={{ width: "45px" }} />
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "space-between",
+                                padding: "1rem 0",
+                                borderBottom: "1px solid rgba(0,0,0,0.08)",
+                            }}
+                        >
+                            <div>
+                                <h1 style={{ margin: 0, fontSize: "1.6rem" }}>{profile.name}</h1>
+                                <p style={{ margin: 0, color: "rgba(0,0,0,0.6)", fontSize: "0.95rem" }}>
+                                    {profile.age} years old
+                                </p>
+                            </div>
+                            <img src="checklist.png" alt="Verified" style={{ width: "44px" }} />
                         </div>
                         <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
                             <img src="home.png" alt="" style={{ width: "clamp(25px, 1vw, 35px)", marginRight: "0.5rem" }} />
@@ -52,10 +81,17 @@ const ProfileEditor = () => {
                             <h2>Interests</h2>
                             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                                 {profile.interests.map((interest, idx) => (
-                                    <div key={idx} style={{
-                                        padding: "4px 12px", borderRadius: "999px", border: "1px solid black",
-                                        backgroundColor: "#f5f5f5", fontSize: "0.85rem", whiteSpace: "nowrap"
-                                    }}>
+                                    <div
+                                        key={idx}
+                                        style={{
+                                            padding: "6px 14px",
+                                            borderRadius: "999px",
+                                            border: "1px solid rgba(0,0,0,0.12)",
+                                            backgroundColor: "rgba(255, 75, 110, 0.08)",
+                                            fontSize: "0.85rem",
+                                            whiteSpace: "nowrap",
+                                        }}
+                                    >
                                         {interest}
                                     </div>
                                 ))}
@@ -66,10 +102,17 @@ const ProfileEditor = () => {
                             <h2>More about me</h2>
                             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                                 {profile.fun_facts.map((fun_fact, idx) => (
-                                    <div key={idx} style={{
-                                        padding: "4px 12px", borderRadius: "999px", border: "1px solid black",
-                                        backgroundColor: "#f5f5f5", fontSize: "0.85rem", whiteSpace: "nowrap"
-                                    }}>
+                                    <div
+                                        key={idx}
+                                        style={{
+                                            padding: "6px 14px",
+                                            borderRadius: "999px",
+                                            border: "1px solid rgba(0,0,0,0.12)",
+                                            backgroundColor: "rgba(255, 75, 110, 0.08)",
+                                            fontSize: "0.85rem",
+                                            whiteSpace: "nowrap",
+                                        }}
+                                    >
                                         {fun_fact}
                                     </div>
                                 ))}
@@ -78,32 +121,51 @@ const ProfileEditor = () => {
                     </div>
                 </div>)}
             {editing && (
-                <div style={{
-                    color: "black",
-                    backgroundColor: "white",
-                    borderRadius: "25px",
-                    border:"1px solid black",
-                    overflow: "hidden",
-                    padding: "10px",
-                    display: "flex",
-                    flexDirection: "column",
-                    width: "clamp(280px, 90%, 400px)"
-                }}>
-                    <h1>Edit Profile</h1>
+                <div
+                    style={{
+                        backgroundColor: "white",
+                        borderRadius: "22px",
+                        overflow: "hidden",
+                        padding: "1.25rem",
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "clamp(320px, 90%, 440px)",
+                        boxShadow: "0 18px 40px rgba(0,0,0,0.1)",
+                    }}
+                >
+                    <h1 style={{ margin: 0, marginBottom: "0.75rem" }}>Edit Profile</h1>
                     <div style={{ marginBottom: "10px" }}>
                         <h2>Location:</h2>
-                        <input type="text" value={profile.location} onChange={(e) =>
-                            setProfile({ ...profile, location: e.target.value })
-                        } />
+                        <input
+                            type="text"
+                            value={profile.location}
+                            onChange={(e) => setProfile({ ...profile, location: e.target.value })}
+                            style={{
+                                width: "100%",
+                                padding: "0.6rem 0.75rem",
+                                borderRadius: "14px",
+                                border: "1px solid rgba(0,0,0,0.15)",
+                                outline: "none",
+                                fontSize: "1rem",
+                            }}
+                        />
                     </div>
                     <div>
                         <h2>About me:</h2>
-                        <textarea value={profile.bio} onChange={(e) =>
-                            setProfile({ ...profile, bio: e.target.value })
-                        }
-                            cols={55}
+                        <textarea
+                            value={profile.bio}
+                            onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
                             rows={10}
-                            style={{ resize: "none" }} />
+                            style={{
+                                width: "100%",
+                                padding: "0.75rem",
+                                borderRadius: "14px",
+                                border: "1px solid rgba(0,0,0,0.15)",
+                                outline: "none",
+                                resize: "vertical",
+                                fontSize: "1rem",
+                            }}
+                        />
                     </div>
 
                     <div>
@@ -152,16 +214,36 @@ const ProfileEditor = () => {
                                 value={newInterest}
                                 onChange={(e) => setNewInterest(e.target.value)}
                                 placeholder="Add interest"
+                                style={{
+                                    flex: 1,
+                                    padding: "0.65rem 0.85rem",
+                                    borderRadius: "14px",
+                                    border: "1px solid rgba(0,0,0,0.15)",
+                                    outline: "none",
+                                    fontSize: "0.95rem",
+                                }}
                             />
                             <button
                                 onClick={() => {
                                     if (newInterest.trim() !== "") {
                                         setProfile({
                                             ...profile,
-                                            interests: [...profile.interests, newInterest.trim().charAt(0).toUpperCase() + newInterest.trim().substring(1)]
+                                            interests: [
+                                                ...profile.interests,
+                                                newInterest.trim().charAt(0).toUpperCase() + newInterest.trim().substring(1),
+                                            ],
                                         })
                                         setNewInterest("")
                                     }
+                                }}
+                                style={{
+                                    padding: "0.7rem 1.1rem",
+                                    borderRadius: "14px",
+                                    border: "none",
+                                    background: "#ff4b6e",
+                                    color: "white",
+                                    cursor: "pointer",
+                                    fontWeight: 600,
                                 }}
                             >
                                 Add
@@ -214,17 +296,37 @@ const ProfileEditor = () => {
                                 type="text"
                                 value={newFunFact}
                                 onChange={(e) => setNewFunFact(e.target.value)}
-                                placeholder="Add interest"
+                                placeholder="Add fun fact"
+                                style={{
+                                    flex: 1,
+                                    padding: "0.65rem 0.85rem",
+                                    borderRadius: "14px",
+                                    border: "1px solid rgba(0,0,0,0.15)",
+                                    outline: "none",
+                                    fontSize: "0.95rem",
+                                }}
                             />
                             <button
                                 onClick={() => {
                                     if (newFunFact.trim() !== "") {
                                         setProfile({
                                             ...profile,
-                                            fun_facts: [...profile.fun_facts, newFunFact.trim().charAt(0).toUpperCase() + newFunFact.trim().substring(1)]
+                                            fun_facts: [
+                                                ...profile.fun_facts,
+                                                newFunFact.trim().charAt(0).toUpperCase() + newFunFact.trim().substring(1),
+                                            ],
                                         })
                                         setNewFunFact("")
                                     }
+                                }}
+                                style={{
+                                    padding: "0.7rem 1.1rem",
+                                    borderRadius: "14px",
+                                    border: "none",
+                                    background: "#ff4b6e",
+                                    color: "white",
+                                    cursor: "pointer",
+                                    fontWeight: 600,
                                 }}
                             >
                                 Add
@@ -232,7 +334,22 @@ const ProfileEditor = () => {
                         </div>
                     </div>
 
-                    <button onClick={() => setEditing(false)}>Close</button>
+                    <button
+                        onClick={() => setEditing(false)}
+                        style={{
+                            padding: "0.75rem 1.1rem",
+                            borderRadius: "14px",
+                            border: "none",
+                            background: "#ff4b6e",
+                            color: "white",
+                            cursor: "pointer",
+                            fontWeight: 600,
+                            marginTop: "1rem",
+                            alignSelf: "flex-end",
+                        }}
+                    >
+                        Close
+                    </button>
                 </div>
 
             )}
@@ -241,25 +358,24 @@ const ProfileEditor = () => {
                     style={{
                         display: "flex",
                         justifyContent: "center",
-                        gap: "20px",
-                        padding: "20px"
+                        gap: "18px",
+                        padding: "20px",
                     }}
                 >
-
                     <button
                         style={{
                             width: "60px",
                             height: "60px",
                             borderRadius: "50%",
                             border: "none",
-                            backgroundColor: "white",
+                            backgroundColor: "#2ecc71",
                             fontSize: "24px",
                             cursor: "pointer",
-                            boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
-                            color: "#2ecc71",
+                            boxShadow: "0 10px 20px rgba(46, 204, 113, 0.28)",
+                            color: "white",
                             display: "flex",
                             justifyContent: "center",
-                            alignItems: "center"
+                            alignItems: "center",
                         }}
                     >
                         ✔
@@ -270,15 +386,15 @@ const ProfileEditor = () => {
                             width: "60px",
                             height: "60px",
                             borderRadius: "50%",
-                            border: "none",
+                            border: "2px solid rgba(0,0,0,0.12)",
                             backgroundColor: "white",
                             fontSize: "24px",
                             cursor: "pointer",
-                            boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+                            boxShadow: "0 10px 20px rgba(0,0,0,0.12)",
                             color: "#2c2c2c",
                             display: "flex",
                             justifyContent: "center",
-                            alignItems: "center"
+                            alignItems: "center",
                         }}
                         onClick={() => setEditing(true)}
                     >
@@ -290,19 +406,20 @@ const ProfileEditor = () => {
                             height: "60px",
                             borderRadius: "50%",
                             border: "none",
-                            backgroundColor: "white",
+                            backgroundColor: "#ff4d6d",
                             fontSize: "24px",
                             cursor: "pointer",
-                            boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
-                            color: "#ff4d6d",
+                            boxShadow: "0 10px 20px rgba(255, 77, 109, 0.28)",
+                            color: "white",
                             display: "flex",
                             justifyContent: "center",
-                            alignItems: "center"
+                            alignItems: "center",
                         }}
                     >
                         ✕
                     </button>
-                </div>)}
+                </div>
+            )}
         </div>
     )
 }

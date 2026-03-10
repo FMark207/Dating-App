@@ -7,7 +7,25 @@
     "shortDescription": "Coffee enthusiast and movie buff.",
     "interests": ["hiking", "films", "cooking"],
     "image": "https://m.media-amazon.com/images/I/41PoJZIpyHL._UXNaN_FMjpg_QL85_.jpg",
-    "isMatched": true
+    "isMatched": true,
+    "chatGame": {
+      "message": "Hey! I just got back from a hike and I'm about to cook something while watching a movie. What would you join me for?",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Let's watch a movie together!"
+        },
+        {
+          "id": "o2",
+          "text": "Let's go skateboarding."
+        },
+        {
+          "id": "o3",
+          "text": "Let's play video games all night."
+        }
+      ],
+      "correctOptionId": "o1"
+    }
   },
   {
     "id": "p_002",
@@ -17,7 +35,25 @@
     "shortDescription": "Design nerd who loves late-night tacos.",
     "interests": ["design", "music", "skateboarding"],
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/960px-Benjamin_Netanyahu%2C_February_2023.jpg",
-    "isMatched": true
+    "isMatched": true,
+    "chatGame": {
+      "message": "I'm redesigning my skateboard deck while listening to music. After that I might sketch some new design ideas. What sounds fun to you?",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Let's go skateboarding."
+        },
+        {
+          "id": "o2",
+          "text": "Let's do yoga together."
+        },
+        {
+          "id": "o3",
+          "text": "Let's cook dinner."
+        }
+      ],
+      "correctOptionId": "o1"
+    }
   },
   {
     "id": "p_003",
@@ -27,6 +63,24 @@
     "shortDescription": "Always planning the next adventure.",
     "interests": ["travel", "photography", "yoga"],
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/960px-Benjamin_Netanyahu%2C_February_2023.jpg",
-    "isMatched": true
+    "isMatched": true,
+    "chatGame": {
+      "message": "I'm planning my next trip and editing some travel photos after yoga. What would you rather do with me?",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Go travel and take photos."
+        },
+        {
+          "id": "o2",
+          "text": "Go skateboarding."
+        },
+        {
+          "id": "o3",
+          "text": "Watch horror movies all night."
+        }
+      ],
+      "correctOptionId": "o1"
+    }
   }
 ]
